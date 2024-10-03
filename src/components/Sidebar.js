@@ -52,14 +52,14 @@ const Sidebar = ({ isOpen, onToggle }) => {
           <li className="nav-item">
             <NavLink
               className="nav-link topbar-left"
-              to="/MyPartner"
+              to="/MyResource"
               onClick={onToggle}
               activeClassName="active"
             >
               <div className="mx-2">
                 <img src={fluent_people} alt="fluent_people" />
               </div>
-              My Partner
+              My Resources
             </NavLink>
           </li>
           <li className="nav-item">
@@ -99,32 +99,6 @@ const Sidebar = ({ isOpen, onToggle }) => {
                 <img src={peopleCommunity} alt="peopleCommunity" />
               </div>
               Shortlist Candidates
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              className="nav-link topbar-left"
-              to="/ClientResource"
-              onClick={onToggle}
-              activeClassName="active"
-            >
-              <div className="mx-2">
-                <img src={peopleCommunity} alt="peopleCommunity" />
-              </div>
-              Partner Resource
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              className="nav-link topbar-left"
-              to="/ClientOpenPosition"
-              onClick={onToggle}
-              activeClassName="active"
-            >
-              <div className="mx-2">
-                <img src={peopleCommunity} alt="peopleCommunity" />
-              </div>
-              Partner Open Position
             </NavLink>
           </li>
           {/* <li className="nav-item">

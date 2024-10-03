@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 
-const ClientResource = () => {
+const MyResource = () => {
 
     const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const ClientResource = () => {
         <>
             <div class="container-fluid table-format">
                 <div class="create-btn-set">
-                    <button class="create-btn" onClick={() => handleCreate("/ClientRequirement")}>
+                    <button class="create-btn" onClick={() => handleCreate("/Requirement")}>
                         <span>Add Resource</span>
                     </button>
                 </div>
@@ -65,4 +65,4 @@ const ClientResource = () => {
     )
 }
 
-export default ClientResource
+export default MyResource

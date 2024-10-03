@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ClientRequirement = () => {
+const Requirement = () => {
     return (
         <>
             <div class="container-fluid table-format">
@@ -240,4 +240,4 @@ const ClientRequirement = () => {
     )
 }
 
-export default ClientRequirement
+export default Requirement

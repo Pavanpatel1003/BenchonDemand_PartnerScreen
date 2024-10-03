@@ -12,7 +12,7 @@ const UserDetails = () => {
             <div class="person-avatar">RN</div>
           </div>
           <div className="person-details-data-wrap">
-            <h4>Renu Kumar</h4>
+            <h4>Renu Kumar</h4>x
             <div className="person-details">
               <p class="mb-0">
                 <span className="me-2">

@@ -1,13 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const ProjectDetails = () => {
-  const navigate = useNavigate();
 
-  const handleRequirement = (path) => {
-    console.log(`Navigating to: ${path}`);
-    navigate(path);
-  };
 
   return (
     <>
@@ -15,80 +9,38 @@ const ProjectDetails = () => {
         <div className="table-heading">
           <h5>Project Details</h5>
         </div>
-        <form>
-          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-3 g-2 g-lg-4">
-            <div class="col label-set">
-              <label for="projectName">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="projectName"
-                placeholder="Ui/UX Project"
-              />
-            </div>
-            <div class="col label-set">
-              <label for="startDate">Start Date</label>
-              <input
-                type="text"
-                class="form-control"
-                id="startDate"
-                placeholder="DD-MM-YY"
-              />
-            </div>
-            <div class="col label-set">
-              <label for="endDate">End Date</label>
-              <input
-                type="text"
-                class="form-control"
-                id="endDate"
-                placeholder="DD-MM-YY"
-              />
-            </div>
-            <div class="col label-set">
-              <label for="totalHeadcount">Total Headcount</label>
-              <input
-                type="number"
-                class="form-control"
-                id="totalHeadcount"
-                placeholder="0"
-              />
-            </div>
-            <div class="col label-set">
-              <label for="description">Description</label>
-              <input
-                type="text"
-                class="form-control"
-                id="description"
-                placeholder="UI/UX or the web portal"
-              />
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-2 g-lg-3">
+          <div class="col">
+            <div class="summary-card">
+              <h6>Status</h6>
+              <p>Lorem Ipsum</p>
             </div>
           </div>
-          <div class="project-details-button-set">
-            <div>
-              <button
-                type="button"
-                class="btn btn-requirement btn-block"
-                onClick={() => handleRequirement("/AddRequirement")}
-              >
-                Add Requirement
-              </button>
-            </div>
-            <div className="top-space">
-              <button type="button" class="btn-cancel me-3">
-                <span className="me-2">
-                  <i class="fa-solid fa-xmark"></i>
-                </span>
-                <span>Cancel</span>
-              </button>
-              <button type="submit" class="btn-cancel">
-                <span className="me-2">
-                  <i class="fa-solid fa-arrows-rotate"></i>
-                </span>
-                <span>Update</span>
-              </button>
+          <div class="col">
+            <div class="summary-card">
+              <h6>Primary Skills</h6>
+              <p>Big Data</p>
             </div>
           </div>
-        </form>
+          <div class="col">
+            <div class="summary-card">
+              <h6>Secondary Skills</h6>
+              <p>AI ML</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="summary-card">
+              <h6>Client Name</h6>
+              <p>India</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="summary-card">
+              <h6>Project Name</h6>
+              <p>Lorem Ipsum</p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
