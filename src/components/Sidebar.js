@@ -115,7 +115,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
               <div className="mx-2">
                 <img src={peopleCommunity} alt="peopleCommunity" />
               </div>
-              Client Onboarded
+              Partner Onboarded
             </NavLink>
           </li>
           <li className="nav-item">
@@ -128,7 +128,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
               <div className="mx-2">
                 <img src={peopleCommunity} alt="peopleCommunity" />
               </div>
-              Client OnBench
+              Partner OnBench
             </NavLink>
           </li>
         </ul>
