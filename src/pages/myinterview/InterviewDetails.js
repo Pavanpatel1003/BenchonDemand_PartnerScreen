@@ -1,13 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const InterviewDetails = () => {
-  const navigate = useNavigate();
-
-  const handleSheduleviewDetails = (path) => {
-    console.log(`Navigating to: ${path}`);
-    navigate(path);
-  };
 
   return (
     <>
@@ -43,6 +36,12 @@ const InterviewDetails = () => {
           </div>
           <div class="col">
             <div class="summary-card">
+              <h6>Time Zone</h6>
+              <p>IST</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="summary-card">
               <h6>Work Location</h6>
               <p>IND Banglore</p>
             </div>
@@ -67,18 +66,6 @@ const InterviewDetails = () => {
           </div>
           <div class="col">
             <div class="summary-card">
-              <h6>Candidate Items</h6>
-              <p>Amit</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="summary-card">
-              <h6>Experience Required</h6>
-              <p>9</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="summary-card">
               <h6>Employee Location</h6>
               <p>IND, Banglore</p>
             </div>
@@ -91,52 +78,20 @@ const InterviewDetails = () => {
           </div>
           <div class="col">
             <div class="summary-card">
+              <h6>Note</h6>
+              <p>Test Notes</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="summary-card">
+              <h6>Candidate Items</h6>
+              <p>Amit</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="summary-card">
               <h6>Interview status</h6>
               <p className="badge-ind">Onboarded</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="summary-card">
-              <h6>Meeting URL</h6>
-              <p className="link-set">-</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="summary-card">
-              <h6>
-                Interview status
-                <span className="scheduled">
-                  <i class="fa-solid fa-calendar"></i>
-                </span>
-              </h6>
-              <p className="badge-scheduled">Scheduled</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="summary-card">
-              <h6>Meeting URL</h6>
-              <p className="link-set">https://www.notion.co/</p>
-            </div>
-          </div>
-          <div class="col">
-            <div class="summary-card">
-              <h6>Interview status</h6>
-              <p className="badge-ind">
-                <select class="form-select" id="interviewStatus">
-                  <option selected>Shortlisted</option>
-                  <option value="1">Scheduled</option>
-                  <option value="2">Completed</option>
-                  <option value="3">Rejected</option>
-                </select>
-                <button
-                  class="interview-details-update"
-                  onClick={() =>
-                    handleSheduleviewDetails("/InterviewDetails")
-                  }
-                >
-                  Update Status
-                </button>
-              </p>
             </div>
           </div>
           <div class="col">

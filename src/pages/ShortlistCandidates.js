@@ -3,7 +3,7 @@ import React from "react";
 const ShortlistCandidates = () => {
   return (
     <>
-      <div class="container-fluid table-format">
+      <div class="container-fluid table-format d-none">
         <div class="table-responsive">
           <table class="table">
             <thead>

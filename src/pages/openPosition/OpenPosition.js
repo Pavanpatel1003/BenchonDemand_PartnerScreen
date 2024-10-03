@@ -69,7 +69,6 @@ const OpenPosition = () => {
                 <th>Primary Skill</th>
                 <th>Secondary Skills</th>
                 <th>Action</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -86,42 +85,6 @@ const OpenPosition = () => {
                   <td>{position.secondarySkills}</td>
                   <td>
                     <span className="view-details">View JD</span>
-                  </td>
-                  <td>
-                    <div className="table-dropdown dropdown">
-                      <button
-                        className="btn position-table-dot"
-                        type="button"
-                        id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        <i className="fas fa-ellipsis-v"></i>
-                      </button>
-                      <ul
-                        className="dropdown-menu position-table-drop"
-                        aria-labelledby="dropdownMenuButton1"
-                      >
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            <img src={search} alt="search" /> Search Candidate
-                            <i className="bi bi-chevron-right"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            <img src={update} alt="update" /> Update Position
-                            <i className="bi bi-chevron-right"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a className="dropdown-item" href="#">
-                            <img src={person} alt="person" /> Request a Partner
-                            <i className="bi bi-chevron-right"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
                   </td>
                 </tr>
               ))}

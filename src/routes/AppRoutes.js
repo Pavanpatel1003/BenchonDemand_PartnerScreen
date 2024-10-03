@@ -23,9 +23,6 @@ import ClientProject from "../pages/clientProject/ClientProject";
 import ClientProjectDetails from "../pages/clientProject/ClientProjectDetails";
 import ClientResource from "../pages/clientProject/ClientResource";
 import ClientRequirement from "../pages/clientProject/ClientRequirement";
-import ClientOpenPosition from "../pages/clientProject/ClientOpenPosition";
-import ClientInterviewDetails from "../pages/clientProject/ClientInterviewDetails";
-import ClientInterview from "../pages/clientProject/ClientInterview";
 import ClientOnboarded from "../pages/clientProject/ClientOnboarded";
 import ClientOnBench from "../pages/clientProject/ClientOnBench";
 import Login from "../pages/login/Login"
@@ -66,9 +63,6 @@ const AppRoutes = () => {
             <Route path="/ClientProjectDetails" element={<ClientProjectDetails />} />
             <Route path="/ClientResource" element={<ClientResource />} />
             <Route path="/ClientRequirement" element={<ClientRequirement />} />
-            <Route path="/ClientOpenPosition" element={<ClientOpenPosition />} />
-            <Route path="/ClientInterviewDetails" element={<ClientInterviewDetails />} />
-            <Route path="/ClientInterview" element={<ClientInterview />} />
             <Route path="/ClientOnboarded" element={<ClientOnboarded />} />
             <Route path="/ClientOnBench" element={<ClientOnBench />} />
             <Route path="/Login" element={<Login />} />
