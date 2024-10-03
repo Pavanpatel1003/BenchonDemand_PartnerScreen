@@ -1,0 +1,266 @@
+@media (max-width: 991.98px) {
+  /* --------START SIDEBAR----------*/
+
+  .sidebar-back {
+    display: block;
+  }
+
+  .sidebar-back .back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar {
+    width: 300px;
+    position: fixed;
+    transform: translateX(-100%);
+    z-index: 1040;
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  /* --------END SIDEBAR----------*/
+
+  /* --------START TOPBAR----------*/
+
+  .topbar {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .topbar .toggle-btn {
+    display: block;
+    /* Show toggle button on small screens */
+    margin-right: 10px;
+  }
+
+  /* --------START TOPBAR----------*/
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 0px 20px;
+    padding-top: 80px;
+    background: #f5f7fa;
+    min-height: 100vh;
+  }
+
+  /* --------START CARD----------*/
+
+  .card-box {
+    justify-content: center;
+  }
+
+  /* --------END TOPBAR----------*/
+}
+
+@media (min-width: 992px) {
+  .main-content {
+    background: #f5f7fa;
+    margin-left: 300px;
+    padding: 0px 20px;
+    padding-top: 80px;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 767px) {
+  /* --------START TOPBAR----------*/
+
+  .topbar-right {
+    display: none !important;
+  }
+
+  .topbar .toggle-btn {
+    margin-right: 10px;
+  }
+
+  .topbar-wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .navbar-brand {
+    font-size: 20px;
+  }
+
+  .topbar {
+    justify-content: flex-start;
+  }
+
+  /* --------END TOPBAR----------*/
+
+  /* --------START DASHBOARD----------*/
+
+  .icon {
+    width: 50px;
+    height: 47px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #ebe5ee;
+    padding: 6px 12px;
+    border: 1px solid #d0d0d0;
+    font-size: 20px;
+    border-radius: 50%;
+  }
+
+  .table-heading h5 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .label-set {
+    margin-bottom: 15px;
+  }
+
+  .label-set label {
+    font-size: 16px;
+    margin-bottom: 5px !important;
+  }
+
+  .form-control {
+    font-size: 13px;
+  }
+
+  .view-all {
+    padding: 8px 20px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .project-details-button-set {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .partner-details-create-btn {
+    justify-content: start;
+  }
+
+  .top-space {
+    margin-top: 20px;
+  }
+
+  .person-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .table-format {
+    margin-top: 30px;
+  }
+
+  .table-heading-set {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* .topbar-left img {
+    width: 50px !important;
+    height: 50px !important;
+  } */
+
+  .chart-drop {
+    margin-top: 10px;
+  }
+
+  .chart-dropdown {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .number {
+    font-size: 40px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .card-item {
+    min-height: 150px;
+    padding: 15px;
+  }
+
+  /* --------END DASHBOARD----------*/
+  .view-details {
+    font-size: 12px;
+    padding: 10px 20px;
+    margin-top: 10px;
+  }
+
+  .table tbody td {
+    font-size: 14px;
+  }
+
+  .table thead th {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  .number {
+    font-size: 40px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .card-item {
+    min-height: 120px;
+    padding: 10px;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .table thead {
+    display: none;
+    /* Hide the table headers on small screens */
+  }
+
+  .table tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .table tbody tr td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .table tbody tr td:last-child {
+    border-bottom: none;
+    /* Remove the last row's border */
+  }
+
+  .table tbody tr td::before {
+    content: attr(data-label);
+    font-weight: 500;
+    font-family: "Product Sans Medium";
+    font-size: 15px;
+    color: #767676;
+  }
+}
