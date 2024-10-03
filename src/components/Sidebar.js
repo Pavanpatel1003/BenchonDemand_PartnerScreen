@@ -140,7 +140,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
               Client Open Position
             </NavLink>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <NavLink
               className="nav-link topbar-left"
               to="/ClientInterviewDetails"
@@ -165,7 +165,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
               </div>
               Client Interview
             </NavLink>
-          </li>
+          </li> */}
           <li className="nav-item">
             <NavLink
               className="nav-link topbar-left"
