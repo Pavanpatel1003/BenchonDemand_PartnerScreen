@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ClientOnboarded = () => {
+const PartnerOnBench = () => {
     return (
         <>
             <div class="container-fluid table-format">
                 <div className="table-heading">
-                    <h5>List of Onboarded Candidates</h5>
+                    <h5>List of Candidates on Bench</h5>
                 </div>
                 <div class="table-responsive">
                     <table class="table">
@@ -51,4 +51,4 @@ const ClientOnboarded = () => {
     )
 }
 
-export default ClientOnboarded
+export default PartnerOnBench
