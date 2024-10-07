@@ -37,7 +37,7 @@ const OpenPosition = () => {
     <>
       <div className="container-fluid table-format">
         <div className="row">
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-2">
             <div className="position-relative">
               <i className="fas fa-search position-absolute search-btn"></i>
               <input
