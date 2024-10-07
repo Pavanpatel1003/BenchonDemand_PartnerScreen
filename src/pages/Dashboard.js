@@ -51,28 +51,28 @@ const Dashboard = () => {
             // Array mapping for card items
             {
               title: "Open Positions",
-              number: 2,
+              number: "02",
               icon: search,
               path: "/OpenPosition",
               newTitle: "Open Positions",
             },
             {
               title: "Scheduled Interviews",
-              number: 4,
+              number: "04",
               icon: peopleCommunity,
               path: "/currentBenchinfo",
               newTitle: "Scheduled Interviews",
             },
             {
               title: "Onboarded Candidates",
-              number: 1,
+              number: "01",
               icon: folderplus,
               path: "/PartnerOnboarded",
               newTitle: "Onboarded Candidates",
             },
             {
               title: "Candidates on Bench",
-              number: 3,
+              number: "03",
               icon: timebeg,
               path: "/PartnerOnBench",
               newTitle: "Candidates on Bench",
