@@ -21,7 +21,7 @@ const MyProject = () => {
                                 <th>Project Start date</th>
                                 <th>Project End date</th>
                                 <th>Shift Timings</th>
-                                <th>Status</th>
+                                <th>Hiring Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
