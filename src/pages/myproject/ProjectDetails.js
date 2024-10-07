@@ -12,31 +12,31 @@ const ProjectDetails = () => {
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-2 g-lg-3">
           <div class="col">
             <div class="summary-card">
-              <h6>Status</h6>
+              <h6>Name</h6>
               <p>Lorem Ipsum</p>
             </div>
           </div>
           <div class="col">
             <div class="summary-card">
-              <h6>Primary Skills</h6>
-              <p>Big Data</p>
+              <h6>Start Date</h6>
+              <p>15 Jul 25</p>
             </div>
           </div>
           <div class="col">
             <div class="summary-card">
-              <h6>Secondary Skills</h6>
-              <p>AI ML</p>
+              <h6>End Date</h6>
+              <p>15 Jul 25</p>
             </div>
           </div>
           <div class="col">
             <div class="summary-card">
-              <h6>Client Name</h6>
-              <p>India</p>
+              <h6>Deployed Resources</h6>
+              <p>Lorem Ipsum</p>
             </div>
           </div>
           <div class="col">
             <div class="summary-card">
-              <h6>Project Name</h6>
+              <h6>Description</h6>
               <p>Lorem Ipsum</p>
             </div>
           </div>
