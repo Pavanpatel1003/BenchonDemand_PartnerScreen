@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import search from "../../assets/image/search.png";
-import update from "../../assets/image/update.png";
-import person from "../../assets/image/person.png";
 
 const OpenPosition = () => {
   const [searchTerm, setSearchTerm] = useState(""); // Search term state

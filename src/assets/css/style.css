@@ -60,7 +60,7 @@ input[type="email"] {
 button {
   padding: 10px 20px;
   /* Padding for the button */
-  background-color: #007bff;
+  /* background-color: #007bff; */
   /* Button background color */
   color: white;
   /* Button text color */
@@ -74,10 +74,9 @@ button {
   /* Transition for hover effect */
 }
 
-button:hover {
+/* button:hover {
   background-color: #0056b3;
-  /* Darker shade on hover */
-}
+} */
 
 /*---------------------------------------------------------END LOGIN------------------------------------------------------- */
 
@@ -319,6 +318,14 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 15px;
+}
+
+.table-formats {
+  background-color: #fff;
+  border-radius: 27px;
+  padding: 30px 30px;
+  margin-top: 20px;
 }
 
 .table-heading h5 {
@@ -1111,7 +1118,7 @@ label {
   margin-top: 5px;
 }
 
-.btn-primary {
+/* .btn-primary {
   background-color: #002744;
   color: #fff;
   padding: 10px 15px;
@@ -1126,7 +1133,7 @@ label {
 
 .btn-primary:hover {
   background-color: #004080;
-}
+} */
 
 .availability {
   text-align: center;
@@ -1138,3 +1145,15 @@ label {
 .text-danger.form-control {
   border: 1px solid red !important;
 }
+
+.recharts-cartesian-grid-vertical,
+.recharts-cartesian-axis-line,
+.recharts-cartesian-axis-tick-line {
+  display: none;
+}
+
+
+/* .recharts-responsive-container {
+  position: relative;
+  left: -53px;
+} */

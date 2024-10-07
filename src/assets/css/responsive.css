@@ -55,6 +55,8 @@
   }
 
   /* --------END TOPBAR----------*/
+
+
 }
 
 @media (min-width: 992px) {
@@ -190,6 +192,20 @@
     min-height: 150px;
     padding: 15px;
   }
+
+  .table-formats {
+    padding: 15px 15px;
+  }
+
+  .table {
+    margin-bottom: 0rem;
+  }
+
+  .main-content {
+    padding: 0px 0px;
+  }
+
+  
 
   /* --------END DASHBOARD----------*/
   .view-details {

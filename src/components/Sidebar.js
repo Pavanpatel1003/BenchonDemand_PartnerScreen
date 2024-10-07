@@ -101,32 +101,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
               Shortlist Candidates
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink
-              className="nav-link topbar-left"
-              to="/PartnerOnboarded"
-              onClick={onToggle}
-              activeClassName="active"
-            >
-              <div className="mx-2">
-                <img src={peopleCommunity} alt="peopleCommunity" />
-              </div>
-              Partner Onboarded
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              className="nav-link topbar-left"
-              to="/PartnerOnBench"
-              onClick={onToggle}
-              activeClassName="active"
-            >
-              <div className="mx-2">
-                <img src={peopleCommunity} alt="peopleCommunity" />
-              </div>
-              Partner OnBench
-            </NavLink>
-          </li>
+          
         </ul>
 
       </div>
