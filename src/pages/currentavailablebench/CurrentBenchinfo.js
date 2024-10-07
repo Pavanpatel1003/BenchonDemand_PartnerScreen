@@ -17,7 +17,7 @@ const CurrentBenchinfo = () => {
 
   return (
     <>
-      <div class="container-fluid table-format">
+      <div class="container-fluid table-format d-none">
         <div className="row">
           <div className="col-12 col-md-4">
             <div className="position-relative">
