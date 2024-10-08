@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import letsiconsfilter from "../assets/image/letsiconsfilter.png";
+import letsiconsfilter from "../../assets/image/letsiconsfilter.png";
 
 const Notification = () => {
   // State to track which notifications are new

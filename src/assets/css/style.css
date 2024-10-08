@@ -40,46 +40,29 @@ h6 {
 
 .logo {
   margin-bottom: 20px;
-  /* Space below the logo */
 }
 
 h2 {
   margin-bottom: 20px;
-  /* Space below the heading */
 }
 
 input[type="email"] {
   width: 100%;
-  /* Full width for input */
   border: 1px solid #ced4da;
-  /* Border for input */
   border-radius: 4px;
-  /* Rounded corners */
 }
 
 button {
   padding: 10px 20px;
-  /* Padding for the button */
-  /* background-color: #007bff; */
-  /* Button background color */
   color: white;
-  /* Button text color */
   border: none;
-  /* No border */
   border-radius: 4px;
-  /* Rounded corners */
   cursor: pointer;
-  /* Pointer cursor on hover */
   transition: background-color 0.3s;
-  /* Transition for hover effect */
 }
 
-/* button:hover {
-  background-color: #0056b3;
-} */
 
 /*---------------------------------------------------------END LOGIN------------------------------------------------------- */
-
 
 
 /*---------------------------------------------------------START SIDEBAR------------------------------------------------------- */
@@ -87,20 +70,15 @@ button {
 .sidebar {
   background-color: #ffffff;
   color: #6a6a6a;
-  /* Updated for better visibility */
   height: 100vh;
-  /* Ensure the sidebar takes full height */
   position: fixed;
   min-width: 300px;
   top: 0;
   left: 0;
   transition: transform 0.3s ease;
   z-index: 1040;
-  /* Ensure sidebar is above other content */
   overflow-y: auto;
-  /* Enable vertical scrolling */
   overflow-x: hidden;
-  /* Prevent horizontal scrolling */
 }
 
 .sidebar.show {
@@ -161,9 +139,7 @@ button {
 /* Hide scrollbar for IE, Edge, and Firefox */
 .sidebar {
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
 }
 
 /*---------------------------------------------------------END SIDEBAR------------------------------------------------------- */
@@ -223,6 +199,16 @@ button {
   background: #f0f0f0;
   border-radius: 40px;
   padding: 0px 10px 0px 0px;
+}
+
+.topbar-left-dropdown {
+  display: flex;
+  align-items: center;
+  background: #ffff;
+  border-radius: 10px;
+  font-weight: 500;
+  box-shadow: 0px 4px 9px 0px #0000000D;
+
 }
 
 .btn-light {
@@ -946,24 +932,6 @@ input[type="file"]::-webkit-file-upload-button {
   visibility: hidden;
 }
 
-/* input[type="file"]::before {
-  content: "";
-  display: inline-block;
-  background: #f8f9fa;
-  border: 1pxx solid #ced4da;
-  padding: 10px 20px;
-  outline: none;
-  white-space: nowrap;
-  cursor: pointer;
-  border-radius: 5px;
-  color: #6c757d;
-  font-size: 14px;
-} */
-
-/* input[type="file"]:hover::before {
-  background-color: #e9ecef;
-} */
-
 .input-icon {
   position: relative;
 }
@@ -1002,11 +970,11 @@ input[type="file"]:hover+.fa-upload {
 
 .card-box {
   background: #f1ecf48a;
-  padding: 10px 20px 30px;
+  padding: 20px 10px 20px;
   border-radius: 40px;
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 
 .card-item {
@@ -1060,18 +1028,14 @@ input[type="file"]:hover+.fa-upload {
 
 .custom-modal-width {
   max-width: 1000px;
-  /* Set your desired max width */
   width: 100%;
-  /* Allows it to be responsive */
   margin: 0 auto;
-  /* Center the modal horizontally */
 }
 
 .modal-dialog-centered {
   display: flex;
   align-items: center;
   min-height: calc(100vh - 1rem);
-  /* Center vertically with some margin */
 }
 
 .appointment-container {
@@ -1118,23 +1082,6 @@ label {
   margin-top: 5px;
 }
 
-/* .btn-primary {
-  background-color: #002744;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-.btn-primary:hover {
-  background-color: #004080;
-} */
-
 .availability {
   text-align: center;
   margin-top: 20px;
@@ -1151,9 +1098,3 @@ label {
 .recharts-cartesian-axis-tick-line {
   display: none;
 }
-
-
-/* .recharts-responsive-container {
-  position: relative;
-  left: -53px;
-} */

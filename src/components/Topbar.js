@@ -9,12 +9,11 @@ import { format } from "date-fns";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { get } from '../services/API';
 
-const Topbar = ({ onToggleSidebar, title, ifdashboard }) => {
+const Topbar = ({ onToggleSidebar, title, folderStructure }) => {
   const currentDate = format(new Date(), "dd MMM yyyy");
   const navigate = useNavigate();
   const location = useLocation();
 
-  // State to store notification count
   const [notificationCount, setNotificationCount] = useState(0);
 
   const handleNotificationClick = () => {
@@ -45,97 +44,62 @@ const Topbar = ({ onToggleSidebar, title, ifdashboard }) => {
   };
 
   useEffect(() => {
-    get(
-      '/get/partners', { partner_id: 'f71050d7-3bbb-40ac-bbea-7fb0adf5cbde' }).then((response) => {
+    get('/get/partners', { partner_id: 'f71050d7-3bbb-40ac-bbea-7fb0adf5cbde' })
+      .then((response) => {
         const notificationInfo = response.data;
-        console.log('notificationinfo', notificationInfo);
-        setNotificationCount(notificationInfo.count || 0)
-      })
-  }, [])
+        setNotificationCount(notificationInfo.count || 0);
+      });
+  }, []);
 
   return (
-    <>
-      <nav className="topbar">
-        <div className="topbar-wrap">
-          <button
-            className="btn btn-dark toggle-btn"
-            type="button"
-            onClick={onToggleSidebar}
-          >
-            ☰
-          </button>
-          <div className="topbar-left">
-            {renderLeftIcon()}
-            <span className="navbar-brand">{title}</span>
-          </div>
-          <div className="topbar-right">
-            <button className="btn btn-light">
-              <FontAwesomeIcon icon={faCalendarDays} />
-              <span className="calendar-date ms-2">{currentDate}</span>
-            </button>
-            <button className="btn btn-light" onClick={handleNotificationClick}>
-              <Badge badgeContent={notificationCount} color="primary">
-                <NotificationsIcon />
-              </Badge>
-            </button>
-            <div className="dropdown">
-              <button
-                className="btn dropdown-toggle topbar-right-dropdown"
-                type="button"
-                id="dropdownMenuButton"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <div className="profile-avatar">AP</div>
-                <div className="me-2">
-                  <div className="person-top">Akash BOD</div>
-                  <div className="person-top-down">Super_Admin</div>
-                </div>
-              </button>
-              <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li>
-                  <Link className="dropdown-item" to="/profile">
-                    Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/settings">
-                    Settings
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/logout">
-                    Logout
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <nav className="topbar">
+      <div className="topbar-wrap">
+        <button
+          className="btn btn-dark toggle-btn"
+          type="button"
+          onClick={onToggleSidebar}
+        >
+          ☰
+        </button>
+        <div className="topbar-left">
+          {renderLeftIcon()}
+          <span className="navbar-brand">{title}</span>
         </div>
+        <div className="topbar-right">
+          <button className="btn btn-light">
+            <FontAwesomeIcon icon={faCalendarDays} />
+            <span className="calendar-date ms-2">{currentDate}</span>
+          </button>
+          <button className="btn btn-light" onClick={handleNotificationClick}>
+            <Badge badgeContent={notificationCount} color="primary">
+              <NotificationsIcon />
+            </Badge>
+          </button>
+        </div>
+      </div>
 
-        {/* Conditionally render breadcrumb (folder section) */}
-        {location.pathname !== "/dashboard" && ifdashboard === true && (
-          <div className="folder-set">
-            <nav>
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item">
+      {/* Conditionally render folder structure */}
+      {location.pathname !== "/dashboard" && folderStructure.length > 0 && (
+        <div className="folder-set">
+          <nav>
+            <ol className="breadcrumb">
+              {folderStructure.map((folder, index) => (
+                <li className="breadcrumb-item" key={index}>
                   <span className="me-2">
                     <i className="fa-regular fa-folder"></i>
                   </span>
-                  <Link to="/">Home</Link>
+                  {index === folderStructure.length - 1 ? (
+                    <span>{folder}</span> // Current page is not a link
+                  ) : (
+                    <Link to={folder.path}>{folder}</Link> // Link for other pages
+                  )}
                 </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  <span className="mx-2">
-                    <i className="fa-regular fa-folder"></i>
-                  </span>
-                  <span>{title}</span>
-                </li>
-              </ol>
-            </nav>
-          </div>
-        )}
-      </nav>
-    </>
+              ))}
+            </ol>
+          </nav>
+        </div>
+      )}
+    </nav>
   );
 };
 

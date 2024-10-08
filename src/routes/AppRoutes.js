@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import Dashboard from "../pages/Dashboard";
-import Notification from "../pages/Notification"
+import Notification from "../pages/notification/Notification"
 import MyProject from "../pages/myproject/MyProject";
 import ProjectDetails from "../pages/myproject/ProjectDetails";
 import MyResource from "../pages/myresources/MyResource";

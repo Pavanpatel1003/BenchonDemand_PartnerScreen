@@ -46,7 +46,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
               <div className="mx-2">
                 <img src={octicon_project} alt="octicon_project" />
               </div>
-              Project
+              Projects
             </NavLink>
           </li>
           <li className="nav-item">
@@ -85,7 +85,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
               <div className="mx-2">
                 <img src={carbon_user} alt="carbon_user" />
               </div>
-              My Interview
+              My Interviews
             </NavLink>
           </li>
           <li className="nav-item">
@@ -98,7 +98,7 @@ const Sidebar = ({ isOpen, onToggle }) => {
               <div className="mx-2">
                 <img src={peopleCommunity} alt="peopleCommunity" />
               </div>
-              Shortlist Candidates
+              Shortlisted Candidates
             </NavLink>
           </li>
           

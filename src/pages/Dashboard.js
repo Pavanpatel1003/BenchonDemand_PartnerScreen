@@ -21,11 +21,38 @@ import {
 const Dashboard = () => {
   const navigate = useNavigate();
 
-  const handleNavigation = (path) => {
-    navigate(path);
-  };
+  const cardItems = [
+    {
+      title: "Open Positions",
+      number: "02",
+      icon: search,
+      path: "/OpenPosition",
+      newTitle: "Open Positions",
+    },
+    {
+      title: "Scheduled Interviews",
+      number: "04",
+      icon: peopleCommunity,
+      path: "/currentBenchinfo",
+      newTitle: "Scheduled Interviews",
+    },
+    {
+      title: "Onboarded Candidates",
+      number: "01",
+      icon: folderplus,
+      path: "/PartnerOnboarded",
+      newTitle: "Onboarded Candidates",
+    },
+    {
+      title: "Candidates on Bench",
+      number: "03",
+      icon: timebeg,
+      path: "/PartnerOnBench",
+      newTitle: "Candidates on Bench",
+    },
+  ];
 
-  const data = [
+  const secoundchart = [
     { name: "React", value: 1.8, fill: "#ffcc80" },
     { name: "Node.js", value: 2.0, fill: "#cfd8dc" },
     { name: "Node.js", value: 1.1, fill: "#f8bbd0" },
@@ -34,7 +61,7 @@ const Dashboard = () => {
     { name: "Node.js", value: 1.5, fill: "#e1bee7" }
   ];
 
-  const newdata = [
+  const firstchart = [
     { name: '1', React: 0, Node: 0, BigData: 0, ASAPNET: 0 },
     { name: '2', React: 2, Node: 0, BigData: 0, ASAPNET: 0 },
     { name: '3', React: 0, Node: 2, BigData: 0, ASAPNET: 0 },
@@ -43,41 +70,17 @@ const Dashboard = () => {
     { name: '6', React: 0, Node: 0, BigData: 0, ASAPNET: 0 },
   ];
 
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   return (
     <>
+
+      {/* cards */}
       <div className="container-fluid common-top">
-        <div className="row card-box g-4">
-          {[
-            // Array mapping for card items
-            {
-              title: "Open Positions",
-              number: "02",
-              icon: search,
-              path: "/OpenPosition",
-              newTitle: "Open Positions",
-            },
-            {
-              title: "Scheduled Interviews",
-              number: "04",
-              icon: peopleCommunity,
-              path: "/currentBenchinfo",
-              newTitle: "Scheduled Interviews",
-            },
-            {
-              title: "Onboarded Candidates",
-              number: "01",
-              icon: folderplus,
-              path: "/PartnerOnboarded",
-              newTitle: "Onboarded Candidates",
-            },
-            {
-              title: "Candidates on Bench",
-              number: "03",
-              icon: timebeg,
-              path: "/PartnerOnBench",
-              newTitle: "Candidates on Bench",
-            },
-          ].map(({ title, number, icon, path }) => (
+        <div className="row card-box">
+          {cardItems.map(({ title, number, icon, path }) => (
             <div key={title} className="col-12 col-md-6 col-lg-3">
               <div
                 className="card-item"
@@ -96,17 +99,17 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Charts and Tables */}
-      <div className="container-fluid">
-        <div className="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 g-4 g-lg-3">
-          <div className="col">
+      {/* Charts and Tables */} 
+      <div className="container-fluid p-0">
+        <div className="row">
+          <div className="col-12 col-sm-12 col-md-12 col-lg-6">
             <div className="card">
               <div className="card-body">
                 <div className="chart-dropdown">
                   <h5 className="card-title mt-2">Top Available Skills</h5>
                 </div>
                 <ResponsiveContainer width="100%" height={400}>
-                  <LineChart data={newdata}
+                  <LineChart data={firstchart}
                     margin={{ top: 20, right: 70, left: -25, bottom: 5 }}
                   >
 
@@ -125,8 +128,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-
-          <div className="col">
+          <div className="col-12 col-sm-12 col-md-12 col-lg-6">
             <div className="card">
               <div className="card-body">
                 <div className="chart-dropdown">
@@ -134,13 +136,13 @@ const Dashboard = () => {
                   <div className="chart-drop">
                     <select className="form-select chart-box-set">
                       <option>Last Year</option>
-                      {/* Additional options can be added here */}
+                      <option>This Year</option>
                     </select>
                   </div>
                 </div>
                 <ResponsiveContainer width="100%" height={400}>
                   <BarChart
-                    data={data}
+                    data={secoundchart}
                     margin={{ top: 20, right: 70, left: -25, bottom: 5 }}
                     barCategoryGap="20%" // Adds space between the columns
                   >
@@ -167,15 +169,17 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Current Projects Table */}
-        <div className="container-fluid table-formats">
-          <div className="row">
+      {/* Project summary */}
+      <div className="container-fluid table-formats">
+        <div className="row">
+          <div className="col">
             <div className="table-heading-set">
-              <h5 className="table-heading">Current Projects</h5>
+              <h5 className="table-heading">Project Summary</h5>
               <div
                 className="view-all"
-                onClick={() => handleNavigation("/CurrentProject")}
+                onClick={() => handleNavigation("/MyProject")}
               >
                 View all
               </div>
@@ -185,67 +189,21 @@ const Dashboard = () => {
                 <thead>
                   <tr>
                     <th>Project Name</th>
+                    <th>Client Name</th>
                     <th>Total Contractual Employees</th>
                     <th>Project Start Date</th>
                     <th>Project End Date</th>
                     <th>Shift Timings</th>
-                    <th>Hiring Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td data-label="Project Name">Ui/UX</td>
-                    <td data-label="Total Contractual Employees">6</td>
+                    <td data-label="Client Name">Client1</td>
+                    <td data-label="Total Contractual Employees">2</td>
                     <td data-label="Project Start Date">18 July 24</td>
                     <td data-label="Project End Date">31 Aug 24</td>
                     <td data-label="Shift Timings">IST</td>
-                    <td data-label="Hiring Status">
-                      <span className="status-hiring">● Hiring</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        {/* My Partners Table */}
-        <div className="container-fluid table-formats">
-          <div className="row">
-            <div className="table-heading-set">
-              <h5 className="table-heading">My Partners</h5>
-              <div
-                className="view-all"
-                onClick={() => handleNavigation("/myPartner")}
-              >
-                View all
-              </div>
-            </div>
-            <div className="table-responsive">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th>Partner Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Point of Contact</th>
-                    <th>Address</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td data-label="Partner Name">
-                      <div className="d-flex align-items-center">
-                        <span className="avatar RN">BOD</span>
-                        <span className="ml-2 ms-3">BenchOnDemand LLP</span>
-                      </div>
-                    </td>
-                    <td data-label="Email">akash@benchondemand.com</td>
-                    <td data-label="Phone Number">5657484934</td>
-                    <td data-label="Point of Contact">Akash Paliwal</td>
-                    <td data-label="Address">
-                      <span className="view-details">View Details</span>
-                    </td>
                   </tr>
                 </tbody>
               </table>
