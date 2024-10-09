@@ -80,6 +80,11 @@
     margin-right: 10px;
   }
 
+  .back-light,
+  .dashboard-icon {
+    padding: 8px;
+  }
+
   .topbar-wrap {
     display: flex;
     justify-content: flex-start;
@@ -114,6 +119,7 @@
   .desc-date {
     flex-direction: column;
   }
+
 
   .notification-card-details p {
     margin-top: 10px;
