@@ -8,7 +8,7 @@ const Requirement = () => {
                     <h5>Add a New Requirement</h5>
                 </div>
                 <form>
-                    <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+                    <div class="row row-cols-1 row-cols-lg-3 g-2 g-lg-3">
                         <div class="col label-set">
                             <label for="name" class="form-label">
                                 Name
@@ -165,7 +165,7 @@ const Requirement = () => {
                         </div>
                     </div>
 
-                    <div className="row row-cols-2 row-cols-lg-3 g-2 g-lg-3 mt-3">
+                    <div className="row row-cols-1 row-cols-lg-3 g-2 g-lg-3 mt-3">
                         <div class="col label-set">
                             <label for="primarySkills" class="form-label">
                                 Primary skill(s) with experience

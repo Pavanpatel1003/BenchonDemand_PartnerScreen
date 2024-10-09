@@ -34,26 +34,26 @@ const MyResource = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>React Node Guy</td>
-                                <td>Proj 1</td>
-                                <td>Akash BOD</td>
-                                <td>React.NodeJs</td>
-                                <td>Javascript</td>
-                                <td>9</td>
-                                <td>17 July 24</td>
-                                <td>
+                                <td data-label="Name">React Node Guy</td>
+                                <td data-label="Project Email">Proj 1</td>
+                                <td data-label="Client Name">Akash BOD</td>
+                                <td data-label="Primary Skills">React.NodeJs</td>
+                                <td data-label="Secoundary Skills">Javascript</td>
+                                <td data-label="YOE">9</td>
+                                <td data-label="Start Date">17 July 24</td>
+                                <td data-label="Status">
                                     <span className="status-hiring">● Active</span>
                                 </td>
                             </tr>
                             <tr>
-                                <td>React Node Guy</td>
-                                <td>Proj 1</td>
-                                <td>Akash BOD</td>
-                                <td>React.NodeJs</td>
-                                <td>Javascript</td>
-                                <td>9</td>
-                                <td>17 July 24</td>
-                                <td>
+                                <td data-label="Name">React Node Guy</td>
+                                <td data-label="Project Email">Proj 1</td>
+                                <td data-label="Client Name">Akash BOD</td>
+                                <td data-label="Primary Skills">React.NodeJs</td>
+                                <td data-label="Secoundary Skills">Javascript</td>
+                                <td data-label="YOE">9</td>
+                                <td data-label="Start Date">17 July 24</td>
+                                <td data-label="Status">
                                     <span className="status-hiring">● Active</span>
                                 </td>
                             </tr>

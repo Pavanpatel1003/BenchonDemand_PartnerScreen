@@ -71,16 +71,16 @@ const OpenPosition = () => {
             <tbody>
               {filteredPositions.map((position, index) => (
                 <tr key={index}>
-                  <td>{position.positionName}</td>
-                  <td>{position.projectName}</td>
-                  <td>{position.startDate}</td>
-                  <td>{position.openPositions}</td>
-                  <td>
+                  <td data-label="Position Name">{position.positionName}</td>
+                  <td data-label="Project Name">{position.projectName}</td>
+                  <td data-label="Start Date">{position.startDate}</td>
+                  <td data-label="Open Positions">{position.openPositions}</td>
+                  <td data-label="Location">
                     <span className="status-hiring">{position.location}</span>
                   </td>
-                  <td>{position.primarySkill}</td>
-                  <td>{position.secondarySkills}</td>
-                  <td>
+                  <td data-label="Primary Skill">{position.primarySkill}</td>
+                  <td data-label="Secondary Skills">{position.secondarySkills}</td>
+                  <td data-label="Action">
                     <span className="view-details">View JD</span>
                   </td>
                 </tr>

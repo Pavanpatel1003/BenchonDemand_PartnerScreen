@@ -22,22 +22,22 @@ const ShortlistCandidates = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Anil</td>
-                <td>Ui/Ux Project</td>
-                <td>Akash BOD</td>
-                <td>2</td>
-                <td>IND</td>
-                <td>9</td>
-                <td>24 March 24</td>               
+                <td data-label="Name">Anil</td>
+                <td data-label="Project Name">Ui/Ux Project</td>
+                <td data-label="Client Name">Akash BOD</td>
+                <td data-label="Primary Skills">2</td>
+                <td data-label="Secoundary Skills">IND</td>
+                <td data-label="yoe">9</td>
+                <td data-label="Start Date">24 March 24</td>
               </tr>
               <tr>
-                <td>Renu</td>
-                <td>Develop</td>
-                <td>Akash BOD</td>
-                <td>2</td>
-                <td>IND</td>
-                <td>9</td>
-                <td>24 March 24</td>               
+                <td data-label="Name">Anil</td>
+                <td data-label="Project Name">Ui/Ux Project</td>
+                <td data-label="Client Name">Akash BOD</td>
+                <td data-label="Primary Skills">2</td>
+                <td data-label="Secoundary Skills">IND</td>
+                <td data-label="yoe">9</td>
+                <td data-label="Start Date">24 March 24</td>
               </tr>
             </tbody>
           </table>

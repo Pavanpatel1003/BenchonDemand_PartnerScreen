@@ -29,23 +29,23 @@ const MyInterview = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Anil</td>
-                <td>Project 2 C1 Vinesh </td>
-                <td>24 March 24</td>
-                <td>17:01</td>
-                <td>Scheduled</td>
-                <td>
+                <td data-label="Project Name">Anil</td>
+                <td data-label="Requirement Name">Project 2 C1 Vinesh </td>
+                <td data-label="Date">24 March 24</td>
+                <td data-label="Time">17:01</td>
+                <td data-label="Interview Status">Scheduled</td>
+                <td data-label="Action">
                   <span class="view-details" onClick={() => handleInterviewDetails("/InterviewDetails")}>View Details</span>
                 </td>
               </tr>
               <tr>
-                <td>Anil</td>
-                <td>Project 2 C1 Vinesh </td>
-                <td>24 March 24</td>
-                <td>17:01</td>
-                <td>Scheduled</td>
-                <td>
-                  <span class="view-details">View Details</span>
+                <td data-label="Project Name">Anil</td>
+                <td data-label="Requirement Name">Project 2 C1 Vinesh </td>
+                <td data-label="Date">24 March 24</td>
+                <td data-label="Time">17:01</td>
+                <td data-label="Interview Status">Scheduled</td>
+                <td data-label="Action">
+                  <span class="view-details" onClick={() => handleInterviewDetails("/InterviewDetails")}>View Details</span>
                 </td>
               </tr>
             </tbody>
@@ -71,24 +71,24 @@ const MyInterview = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Anil</td>
-                <td>Project 2 C1 Vinesh </td>
-                <td>Full Stack</td>
-                <td>Onboarded</td>
-                <td>24 March 24</td>
-                <td>17:01</td>
-                <td>
+                <td data-label="Candidate Name">Anil</td>
+                <td data-label="Project Name">Project 2 C1 Vinesh </td>
+                <td data-label="Position Name">Full Stack</td>
+                <td data-label="Interview Outcome">Onboarded</td>
+                <td data-label="Date">24 March 24</td>
+                <td data-label="Time">17:01</td>
+                <td data-label="Action">
                   <span class="view-details">View Details</span>
                 </td>
               </tr>
               <tr>
-                <td>Anil</td>
-                <td>Project 2 C1 Vinesh </td>
-                <td>Full Stack</td>
-                <td>Onboarded</td>
-                <td>24 March 24</td>
-                <td>17:01</td>
-                <td>
+                <td data-label="Candidate Name">Anil</td>
+                <td data-label="Project Name">Project 2 C1 Vinesh </td>
+                <td data-label="Position Name">Full Stack</td>
+                <td data-label="Interview Outcome">Onboarded</td>
+                <td data-label="Date">24 March 24</td>
+                <td data-label="Time">17:01</td>
+                <td data-label="Action">
                   <span class="view-details">View Details</span>
                 </td>
               </tr>

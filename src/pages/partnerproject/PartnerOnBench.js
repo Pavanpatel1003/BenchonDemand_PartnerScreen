@@ -22,26 +22,15 @@ const PartnerOnBench = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Ui Designer</td>
-                                <td>Ui/Ux Project</td>
-                                <td>Akash BOD</td>
-                                <td>2</td>
-                                <td>
+                                <td data-label="Name">Ui Designer</td>
+                                <td data-label="Project Name">Ui/Ux Project</td>
+                                <td data-label="Client Name">Akash BOD</td>
+                                <td data-label="Primary Skills">2</td>
+                                <td data-label="Secoundary Skills">
                                     <span className="status-hiring">IND</span>
                                 </td>
-                                <td>9</td>
-                                <td>17 Jul 24</td>
-                            </tr>
-                            <tr>
-                                <td>Ui Designer</td>
-                                <td>Ui/Ux Project</td>
-                                <td>Akash BOD</td>
-                                <td>2</td>
-                                <td>
-                                    <span className="status-hiring">IND</span>
-                                </td>
-                                <td>9</td>
-                                <td>17 Jul 24</td>
+                                <td data-label="Yoe">9</td>
+                                <td data-label="Start Date">17 Jul 24</td>
                             </tr>
                         </tbody>
                     </table>

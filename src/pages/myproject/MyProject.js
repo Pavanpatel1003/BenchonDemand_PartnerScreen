@@ -27,33 +27,15 @@ const MyProject = () => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>UI/UX Project</td>
-                                <td>0</td>
-                                <td>18 Jul 24</td>
-                                <td>31 Aug 24</td>
-                                <td>IST</td>
-                                <td>
+                                <td data-label="Project Name">UI/UX Project</td>
+                                <td data-label="Total Contractual Employees">0</td>
+                                <td data-label="Project Start date">18 Jul 24</td>
+                                <td data-label="Project End date">31 Aug 24</td>
+                                <td data-label="Shift Timings">IST</td>
+                                <td data-label="Hiring Status">
                                     <span class="status-hiring">● Hiring</span>
                                 </td>
-                                <td>
-                                    <span
-                                        class="view-details"
-                                        onClick={() => handleCurrentProject("/ProjectDetails")}
-                                    >
-                                        View Details
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>UI/UX Project</td>
-                                <td>0</td>
-                                <td>18 Jul 24</td>
-                                <td>31 Aug 24</td>
-                                <td>IST</td>
-                                <td>
-                                    <span class="status-hiring">● Hiring</span>
-                                </td>
-                                <td>
+                                <td data-label="Action">
                                     <span
                                         class="view-details"
                                         onClick={() => handleCurrentProject("/ProjectDetails")}

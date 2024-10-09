@@ -21,6 +21,10 @@ import {
 const Dashboard = () => {
   const navigate = useNavigate();
 
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   const cardItems = [
     {
       title: "Open Positions",
@@ -70,16 +74,12 @@ const Dashboard = () => {
     { name: '6', React: 0, Node: 0, BigData: 0, ASAPNET: 0 },
   ];
 
-  const handleNavigation = (path) => {
-    navigate(path);
-  };
-
   return (
     <>
 
       {/* cards */}
       <div className="container-fluid common-top">
-        <div className="row card-box">
+        <div className="row card-box g-4">
           {cardItems.map(({ title, number, icon, path }) => (
             <div key={title} className="col-12 col-md-6 col-lg-3">
               <div
@@ -100,7 +100,7 @@ const Dashboard = () => {
       </div>
 
       {/* Charts and Tables */} 
-      <div className="container-fluid p-0">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-12 col-sm-12 col-md-12 col-lg-6">
             <div className="card">

@@ -75,7 +75,40 @@ const Topbar = ({ onToggleSidebar, title, folderStructure }) => {
               <NotificationsIcon />
             </Badge>
           </button>
+          <div className="dropdown">
+            <button
+              className="btn dropdown-toggle topbar-right-dropdown"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <div className="profile-avatar">AP</div>
+              <div className="me-2">
+                <div className="person-top">Akash BOD</div>
+                <div className="person-top-down">Super_Admin</div>
+              </div>
+            </button>
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li>
+                <Link className="dropdown-item" to="/profile">
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to="/settings">
+                  Settings
+                </Link>
+              </li>
+              <li>
+                <Link className="dropdown-item" to="/logout">
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
+
       </div>
 
       {/* Conditionally render folder structure */}
