@@ -17,12 +17,18 @@ const Layout = ({ children }) => {
       setPageTitle("Dashboard");
       setFolderStructure([]); // No folder structure for Dashboard
     } else {
-      setPageTitle(getTitleFromPath(currentPath));
-      setFolderStructure(getBreadcrumbFromPath(currentPath)); // Set breadcrumb based on path
+      const title = getTitleFromPath(currentPath);
+      const breadcrumb = getBreadcrumbFromPath(currentPath);
+      setPageTitle(title);
+      setFolderStructure(breadcrumb);
     }
   }, [location.pathname]);
 
   const getTitleFromPath = (path) => {
+    if (path.startsWith("/projectdetails")) return "Project Details";
+    if (path.startsWith("/requirement")) return "My Resources";
+    if (path.startsWith("/interviewdetails")) return "Interview Details"; // Lowercase check
+
     switch (path) {
       case "/openposition":
         return "Open Positions";
@@ -48,25 +54,29 @@ const Layout = ({ children }) => {
   };
 
   const getBreadcrumbFromPath = (path) => {
+    if (path.startsWith("/projectdetails")) return ["Home", "Projects", "Project Details"];
+    if (path.startsWith("/requirement")) return ["Home", "My Resources", "Add Resources"];
+    if (path.startsWith("/interviewdetails")) return ["Home", "My Interviews", "Details"]; // Adjusted breadcrumb
+
     switch (path) {
       case "/openposition":
-        return ["Dashboard", "Open Positions"];
+        return ["Home", "Open Positions"];
       case "/currentbenchinfo":
-        return ["Dashboard", "Scheduled Interviews"];
+        return ["Home", "Scheduled Interviews"];
       case "/partneronboarded":
-        return ["Dashboard", "Onboarded Candidates"];
+        return ["Home", "Onboarded Candidates"];
       case "/partneronbench":
-        return ["Dashboard", "Candidates on Bench"];
+        return ["Home", "Candidates on Bench"];
       case "/myproject":
-        return ["Dashboard", "Projects"];
+        return ["Home", "Projects"];
       case "/myresource":
-        return ["Dashboard", "My Resources"];
+        return ["Home", "My Resources"];
       case "/mailbox":
-        return ["Dashboard", "Mailbox"];
+        return ["Home", "Mailbox"];
       case "/myinterview":
-        return ["Dashboard", "My Interviews"];
+        return ["Home", "My Interviews"];
       case "/shortlistcandidates":
-        return ["Dashboard", "Shortlisted Candidates"];
+        return ["Home", "Shortlisted Candidates"];
       default:
         return [];
     }
@@ -84,7 +94,9 @@ const Layout = ({ children }) => {
         folderStructure={folderStructure} // Pass breadcrumb structure to Topbar
       />
       <Sidebar isOpen={isSidebarOpen} onToggle={handleToggleSidebar} />
-      <div className="main-content">{children}</div>
+      <div className={`main-content ${isSidebarOpen ? "sidebar-open" : ""}`}>
+        {children}
+      </div>
     </div>
   );
 };

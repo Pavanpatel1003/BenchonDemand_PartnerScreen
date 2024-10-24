@@ -5,7 +5,7 @@ const ShortlistCandidates = () => {
     <>
       <div class="container-fluid table-format">
         <div className="table-heading">
-          <h5>Interview Details</h5>
+          <h5>List Of Shortlisted Candidate</h5>
         </div>
         <div class="table-responsive">
           <table class="table">

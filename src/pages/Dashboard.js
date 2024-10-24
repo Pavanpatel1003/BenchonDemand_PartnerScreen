@@ -37,7 +37,7 @@ const Dashboard = () => {
       title: "Scheduled Interviews",
       number: "04",
       icon: peopleCommunity,
-      path: "/currentBenchinfo",
+      path: "/InterviewDetails",
       newTitle: "Scheduled Interviews",
     },
     {
@@ -99,39 +99,64 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Charts and Tables */} 
+      {/* Charts and Tables */}
       <div className="container-fluid">
         <div className="row">
-          <div className="col-12 col-sm-12 col-md-12 col-lg-6">
+          {/* First Chart: Top Available Skills */}
+          <div className="col-12 col-sm-12 col-md-12 col-lg-6 mb-4">
             <div className="card">
               <div className="card-body">
                 <div className="chart-dropdown">
                   <h5 className="card-title mt-2">Top Available Skills</h5>
                 </div>
-                <ResponsiveContainer width="100%" height={400}>
-                  <LineChart data={firstchart}
-                    margin={{ top: 20, right: 70, left: -25, bottom: 5 }}
+                <ResponsiveContainer width="100%" height={window.innerWidth < 576 ? 250 : 400}>
+                  <LineChart
+                    data={firstchart}
+                    margin={{ top: 20, right: 20, left: window.innerWidth < 576 ? 0 : -25, bottom: 5 }}
                   >
-
                     <XAxis dataKey="name" />
                     <YAxis domain={[0, 2]} />
                     <CartesianGrid stroke="#ccc" />
                     <Tooltip />
-
-                    {/* Lines for each technology */}
-                    <Line type="monotone" dataKey="React" stroke="#9052ff" strokeWidth={1} dot={{ fill: '#9052ff', r: 5 }} />
-                    <Line type="monotone" dataKey="Node" stroke="#329bff" strokeWidth={1} dot={{ fill: '#329bff', r: 5 }} />
-                    <Line type="monotone" dataKey="BigData" stroke="#f5c200" strokeWidth={1} dot={{ fill: '#f5c200', r: 5 }} />
-                    <Line type="monotone" dataKey="ASAPNET" stroke="#777777" strokeWidth={1} dot={{ fill: '#777777', r: 5 }} />
+                    <Line
+                      type="monotone"
+                      dataKey="React"
+                      stroke="#9052ff"
+                      strokeWidth={2}
+                      dot={{ fill: "#9052ff", r: 4 }}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="Node"
+                      stroke="#329bff"
+                      strokeWidth={2}
+                      dot={{ fill: "#329bff", r: 4 }}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="BigData"
+                      stroke="#f5c200"
+                      strokeWidth={2}
+                      dot={{ fill: "#f5c200", r: 4 }}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="ASAPNET"
+                      stroke="#777777"
+                      strokeWidth={2}
+                      dot={{ fill: "#777777", r: 4 }}
+                    />
                   </LineChart>
                 </ResponsiveContainer>
               </div>
             </div>
           </div>
-          <div className="col-12 col-sm-12 col-md-12 col-lg-6">
+
+          {/* Second Chart: Total Utilized Skills */}
+          <div className="col-12 col-sm-12 col-md-12 col-lg-6 mb-4">
             <div className="card">
               <div className="card-body">
-                <div className="chart-dropdown">
+                <div className="chart-dropdown d-flex justify-content-between align-items-center">
                   <h5 className="card-title">Total Utilized Skills</h5>
                   <div className="chart-drop">
                     <select className="form-select chart-box-set">
@@ -140,27 +165,23 @@ const Dashboard = () => {
                     </select>
                   </div>
                 </div>
-                <ResponsiveContainer width="100%" height={400}>
+                <ResponsiveContainer width="100%" height={window.innerWidth < 576 ? 250 : 400}>
                   <BarChart
                     data={secoundchart}
-                    margin={{ top: 20, right: 70, left: -25, bottom: 5 }}
-                    barCategoryGap="20%" // Adds space between the columns
+                    margin={{ top: 20, right: 20, left: window.innerWidth < 576 ? 0 : -25, bottom: 5 }}
+                    barCategoryGap="30%" // Adds more space between the bars on smaller screens
                   >
                     <CartesianGrid stroke="#ccc" />
                     <XAxis dataKey="name" tick={false} /> {/* Hides the bottom text */}
                     <YAxis domain={[0, 2]} />
                     <Tooltip />
-                    <Bar
-                      dataKey="value"
-                      fill="#8884d8"
-                      radius={[50, 50, 50, 50]} // Top rounded corners
-                    >
+                    <Bar dataKey="value" fill="#8884d8" radius={[20, 20, 20, 20]}>
                       <LabelList
                         dataKey="name"
                         position="center"
-                        fill="#000" // Text color
-                        angle={-90} // Keep text horizontal
-                        style={{ textAnchor: "middle" }} // Center the text
+                        fill="#000"
+                        angle={-90}
+                        style={{ textAnchor: "middle" }}
                       />
                     </Bar>
                   </BarChart>
@@ -170,6 +191,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
 
       {/* Project summary */}
       <div className="container-fluid table-formats">

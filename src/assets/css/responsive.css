@@ -33,7 +33,6 @@
 
   .topbar .toggle-btn {
     display: block;
-    /* Show toggle button on small screens */
     margin-right: 10px;
   }
 
@@ -56,6 +55,40 @@
 
   /* --------END TOPBAR----------*/
 
+  .table thead {
+    display: none;
+  }
+
+  .table tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .table tbody tr td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .table tbody tr td:last-child {
+    border-bottom: none;
+    /* Remove the last row's border */
+  }
+
+  .table tbody tr td::before {
+    content: attr(data-label);
+    font-weight: 500;
+    font-family: "Product Sans Medium";
+    font-size: 15px;
+    color: #767676;
+  }
 
 }
 
@@ -258,6 +291,10 @@
   .table thead th {
     font-size: 13px;
   }
+
+  .recharts-text tspan{
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -278,43 +315,21 @@
     min-height: 120px;
     padding: 10px;
   }
-}
 
-
-@media (max-width: 991px) {
-  .table thead {
-    display: none;
-    /* Hide the table headers on small screens */
+  .chart-dropdown h5 {
+    font-size: 1rem;
   }
 
-  .table tbody tr {
-    display: block;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  .chart-drop select {
+    width: 100%;
+    font-size: 0.9rem;
   }
 
-  .table tbody tr td {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
-    border: none;
-    border-bottom: 1px solid #eee;
+  .card-body {
+    padding: 15px;
   }
 
-  .table tbody tr td:last-child {
-    border-bottom: none;
-    /* Remove the last row's border */
-  }
-
-  .table tbody tr td::before {
-    content: attr(data-label);
-    font-weight: 500;
-    font-family: "Product Sans Medium";
-    font-size: 15px;
-    color: #767676;
+  .card {
+    margin-bottom: 20px;
   }
 }
