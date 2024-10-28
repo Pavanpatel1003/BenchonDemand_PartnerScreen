@@ -37,7 +37,7 @@ const Dashboard = () => {
       title: "Scheduled Interviews",
       number: "04",
       icon: peopleCommunity,
-      path: "/InterviewDetails",
+      path: "/InterviewDetails/:id",
       newTitle: "Scheduled Interviews",
     },
     {

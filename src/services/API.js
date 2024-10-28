@@ -15,6 +15,16 @@ export const get = async (url, params, headers = {}) => {
     });
 };
 
+// GetById method
+export const getBYID = async (url, params, headers = {}) => {
+    const queryParams = querystring.stringify(params);
+    const HOST_URL = process.env.REACT_APP_API_HOST;
+    url = trimStart(`${endPoint}${url}`, '/');
+    return axios.get(`${url}${params}`, {
+        headers: { ...getHeaders().headers, Authorization: `Bearer ${localStorage.getItem('token')}` },
+    });
+};
+
 // Get blob method
 export const getBlob = async (url, params, headers = {}) => {
     const queryParams = querystring.stringify(params);

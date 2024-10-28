@@ -328,6 +328,7 @@ button {
   background-color: #f0ecf2;
   padding: 10px 20px;
   border-radius: 40px;
+  cursor: pointer;
 }
 
 /* --------------------------------------------------------START GRAPH -------------------------------------------------------------------- */
@@ -336,6 +337,14 @@ button {
   border-radius: 40px;
   margin: 20px 0;
   border: none !important;
+}
+
+.chart-drop{
+  cursor: pointer;
+}
+
+.chart-box-set , option{
+  cursor: pointer;
 }
 
 .card-body {
@@ -987,6 +996,7 @@ input[type="file"]:hover+.fa-upload {
   padding: 20px;
   border-radius: 15px;
   position: relative;
+  cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   justify-content: space-between;
@@ -1352,4 +1362,10 @@ label {
 .pagination button {
   color: #000;
   margin: 10px;
+}
+
+.active-page {
+  background-color: #89609e;
+  color: white !important;
+  font-weight: 600;
 }

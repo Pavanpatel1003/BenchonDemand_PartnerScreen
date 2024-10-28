@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getBYID } from '../../services/API';
+import moment from 'moment';
+import { useParams } from 'react-router-dom';
 
 const ProjectDetails = () => {
+  const { id } = useParams();
+  const [projectDetailsData, setProjectDetailsData] = useState('');
+
+  useEffect(() => {
+    getBYID(`get/project?id=`, id).then((response) => {
+      const projectDetails = response.data.data;
+      console.log('projectDetails', projectDetails);
+      setProjectDetailsData(projectDetails || {})
+    }).catch((error) => {
+      console.error("Error fetching projects:", error);
+    });
+  }, []);
 
 
   return (
@@ -13,31 +28,38 @@ const ProjectDetails = () => {
           <div class="col">
             <div class="summary-card">
               <h6>Name</h6>
-              <p>Lorem Ipsum</p>
+              <p>{projectDetailsData.name}</p>
             </div>
           </div>
           <div class="col">
             <div class="summary-card">
               <h6>Start Date</h6>
-              <p>15 Jul 25</p>
+              <p>{moment(Number(projectDetailsData?.start_date)).isValid()
+                ? moment(Number(projectDetailsData?.start_date)).format('DD MMM YYYY')
+                : 'Invalid Date'}
+              </p>
             </div>
           </div>
           <div class="col">
             <div class="summary-card">
               <h6>End Date</h6>
-              <p>15 Jul 25</p>
+              <p>
+                {moment(Number(projectDetailsData?.end_date)).isValid()
+                  ? moment(Number(projectDetailsData?.end_date)).format('DD MMM YYYY')
+                  : 'Invalid Date'}
+              </p>
             </div>
           </div>
           <div class="col">
             <div class="summary-card">
               <h6>Deployed Resources</h6>
-              <p>Lorem Ipsum</p>
+              <p>{projectDetailsData.manager_name}</p>
             </div>
           </div>
           <div class="col">
             <div class="summary-card">
               <h6>Description</h6>
-              <p>Lorem Ipsum</p>
+              <p>{projectDetailsData.description}</p>
             </div>
           </div>
         </div>
