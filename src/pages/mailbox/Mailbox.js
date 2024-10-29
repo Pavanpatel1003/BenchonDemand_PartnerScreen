@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import letsiconsfilter from "../../assets/image/letsiconsfilter.png";
 
 const Mailbox = () => {
-  // State to track which notifications are new
+  // State to track notifications
   const [notifications, setNotifications] = useState([
     {
       id: 1,
       message: "A new candidate was added by BenchOnDemand LLP.",
       description:
         "Dear Akash BOD, a new candidate was added by BenchOnDemand LLP with skills React (6 years), Node.js (6 years).",
-      date: "28 Jul 2024",
+      date: "08 Jun 2024",
       isNew: true,
     },
     {
@@ -17,26 +17,27 @@ const Mailbox = () => {
       message: "A new candidate was added by BenchOnDemand LLP.",
       description:
         "Dear Akash BOD, a new candidate was added by BenchOnDemand LLP with skills React (6 years), Node.js (6 years).",
-      date: "28 Jul 2024",
+      date: "20 Jul 2024",
       isNew: true,
     },
     {
       id: 3,
-      message: "A new candidate was added by BenchOnDemand LLP.",
-      description:
-        "Dear Akash BOD, a new candidate was added by BenchOnDemand LLP with skills React (6 years), Node.js (6 years).",
-      date: "23 Jul 2024",
-      isNew: true,
+      message: "A candidate was reviewed.",
+      description: "Dear Akash BOD, a candidate has been reviewed.",
+      date: "07 Aug 2024",
+      isNew: false,
     },
     {
       id: 4,
-      message: "A new candidate was added by BenchOnDemand LLP.",
-      description:
-        "Dear Akash BOD, a new candidate was added by BenchOnDemand LLP with skills React (6 years), Node.js (6 years).",
-      date: "22 Jul 2024",
-      isNew: true,
+      message: "A candidate was shortlisted.",
+      description: "Dear Akash BOD, a candidate has been shortlisted.",
+      date: "26 Sep 2024",
+      isNew: false,
     },
   ]);
+
+  // State to track filter status
+  const [showNewOnly, setShowNewOnly] = useState(false);
 
   // Function to mark a notification as "seen"
   const handleCheckNotification = (id) => {
@@ -49,18 +50,28 @@ const Mailbox = () => {
     );
   };
 
+  // Function to toggle filter
+  const toggleFilter = () => {
+    setShowNewOnly((prev) => !prev);
+  };
+
+  // Filter notifications based on the filter status
+  const filteredNotifications = showNewOnly
+    ? notifications.filter((notification) => notification.isNew)
+    : notifications;
+
   return (
     <div className="container-fluid table-format">
       <div className="date-btn-set">
-        <button className="date-btn">
-          <span className="me-2">Date</span>
+        <button className="date-btn" onClick={toggleFilter}>
+          <span className="me-2">{showNewOnly ? "New Date" : "Date"}</span>
           <span>
             <img src={letsiconsfilter} alt="Filter Icon" />
           </span>
         </button>
       </div>
 
-      {notifications.map((notification) => (
+      {filteredNotifications.map((notification) => (
         <div
           key={notification.id}
           className="notification-card"

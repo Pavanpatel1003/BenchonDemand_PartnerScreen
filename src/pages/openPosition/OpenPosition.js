@@ -84,11 +84,7 @@ const OpenPosition = () => {
           <tbody>
             {loading ? (
               <tr>
-                <td colSpan="8" style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
+                <td colSpan="8">
                   <ThreeDots
                     visible={true}
                     height="50"

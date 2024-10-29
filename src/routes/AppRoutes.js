@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "../components/Layout";
 import Dashboard from "../pages/Dashboard";
-import Notification from "../pages/notification/Notification";
 import MyProject from "../pages/myproject/MyProject";
 import ProjectDetails from "../pages/myproject/ProjectDetails";
 import MyResource from "../pages/myresources/MyResource";
@@ -16,37 +15,161 @@ import PartnerOnBench from "../pages/partnerproject/PartnerOnBench";
 import OpenPosition from "../pages/openPosition/OpenPosition";
 import CurrentBenchInfo from "../pages/currentavailablebench/CurrentBenchinfo";
 import UserDetails from "../pages/currentavailablebench/UserDetails";
-// import Login from "../pages/login/Login";
+import Login from "../pages/login/Login";
+import PrivateRoute from "../privateRoute/privateRoute";
 
 const AppRoutes = () => {
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  // const handleLogin = () => {
-  //   setIsAuthenticated(true);
-  // };
-
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/Notification" element={<Notification />} />
-          <Route path="/MyProject" element={<MyProject />} />
-          <Route path="/ProjectDetails/:id" element={<ProjectDetails />} />
-          <Route path="/MyResource" element={<MyResource />} />
-          <Route path="/Requirement" element={<Requirement />} />
-          <Route path="/mailbox" element={<Mailbox />} />
-          <Route path="/myinterview" element={<MyInterview />} />
-          <Route path="/InterviewDetails/:id" element={<InterviewDetails />} />
-          <Route path="/shortlistCandidates" element={<ShortlistCandidates />} />
-          <Route path="/PartnerOnboarded" element={<PartnerOnboarded />} />
-          <Route path="/PartnerOnBench" element={<PartnerOnBench />} />
-          <Route path="/OpenPosition" element={<OpenPosition />} />
-          <Route path="/CurrentBenchinfo" element={<CurrentBenchInfo />} />
-          <Route path="/UserDetails" element={<UserDetails />} />
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        {/* Public Route: Login */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Redirect to Login if trying to access root */}
+        <Route path="/" element={<Navigate to="/login" />} />
+
+        {/* Protected Routes wrapped in Layout */}
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <Dashboard />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/myProject"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <MyProject />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/projectDetails/:id"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <ProjectDetails />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/myResource"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <MyResource />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/requirement"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <Requirement />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/mailbox"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <Mailbox />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/myinterview"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <MyInterview />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/interviewDetails/:id"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <InterviewDetails />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/shortlistCandidates"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <ShortlistCandidates />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/partnerOnboarded"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <PartnerOnboarded />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/partnerOnBench"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <PartnerOnBench />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/openPosition"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <OpenPosition />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/currentBenchinfo"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <CurrentBenchInfo />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/userDetails"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <UserDetails />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+      </Routes>
     </Router>
   );
 };

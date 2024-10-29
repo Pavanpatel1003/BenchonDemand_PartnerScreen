@@ -15,7 +15,7 @@ const MyInterview = () => {
   const rowsPerPage = 5;
 
   const handleInterviewDetails = (id) => {
-    navigate(`/InterviewDetails/${id}`);
+    navigate(`/interviewDetails/${id}`);
   };
 
   useEffect(() => {
@@ -84,12 +84,7 @@ const MyInterview = () => {
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan="6" style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '100px'
-                  }}>
+                  <td colSpan="6">
                     <ThreeDots
                       visible={true}
                       height="50"

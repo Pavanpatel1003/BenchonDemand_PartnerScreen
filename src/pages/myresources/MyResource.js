@@ -63,12 +63,7 @@ const MyResource = () => {
                     <tbody>
                         {loading ? (
                             <tr>
-                                <td colSpan="8" style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    height: '100px'
-                                }}>
+                                <td colSpan="8">
                                     <ThreeDots
                                         visible={true}
                                         height="50"

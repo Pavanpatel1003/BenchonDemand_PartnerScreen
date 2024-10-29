@@ -7,17 +7,22 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { format } from "date-fns";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
-import { get } from '../services/API';
+import { get } from "../services/API";
+import { useDispatch, useSelector } from "react-redux";
+import { setAuthLogin } from "../redux/reducers/isAuth";
+import { toast } from "react-toastify";
 
 const Topbar = ({ onToggleSidebar, title, folderStructure }) => {
   const currentDate = format(new Date(), "dd MMM yyyy");
+  const { logData } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const [notificationCount, setNotificationCount] = useState(0);
 
   const handleNotificationClick = () => {
-    navigate("/Notification");
+    navigate("/Mailbox");
   };
 
   const renderLeftIcon = () => {
@@ -44,12 +49,19 @@ const Topbar = ({ onToggleSidebar, title, folderStructure }) => {
   };
 
   useEffect(() => {
-    get('/get/partners', { partner_id: 'f71050d7-3bbb-40ac-bbea-7fb0adf5cbde' })
-      .then((response) => {
-        const notificationInfo = response.data;
-        setNotificationCount(notificationInfo.count || 0);
-      });
+    get("/get/partners", {
+      partner_id: "f71050d7-3bbb-40ac-bbea-7fb0adf5cbde",
+    }).then((response) => {
+      const notificationInfo = response.data;
+      setNotificationCount(notificationInfo.count || 0);
+    });
   }, []);
+
+  const handleLogOut = () => {
+    toast.success("LogOut Successful.");
+    dispatch(setAuthLogin({ isLogIn: false, data: {} }));
+    navigate("/login");
+  };
 
   return (
     <nav className="topbar">
@@ -85,8 +97,8 @@ const Topbar = ({ onToggleSidebar, title, folderStructure }) => {
             >
               <div className="profile-avatar">AP</div>
               <div className="me-2">
-                <div className="person-top">Akash BOD</div>
-                <div className="person-top-down">Super_Admin</div>
+                <div className="person-top">{logData?.name}</div>
+                <div className="person-top-down">{logData?.role}</div>
               </div>
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -100,15 +112,16 @@ const Topbar = ({ onToggleSidebar, title, folderStructure }) => {
                   Settings
                 </Link>
               </li>
-              <li>
-                <Link className="dropdown-item" to="/logout">
-                  Logout
-                </Link>
+              <li
+                onClick={handleLogOut}
+                className="dropdown-item"
+                style={{ cursor: "pointer" }}
+              >
+                Logout
               </li>
             </ul>
           </div>
         </div>
-
       </div>
 
       {/* Conditionally render folder structure */}
@@ -122,9 +135,9 @@ const Topbar = ({ onToggleSidebar, title, folderStructure }) => {
                     <i className="fa-regular fa-folder"></i>
                   </span>
                   {index === folderStructure.length - 1 ? (
-                    <span>{folder}</span> // Current page is not a link
+                    <span>{folder}</span>
                   ) : (
-                    <Link to={folder.path}>{folder}</Link> // Link for other pages
+                    <Link to={folder.path}>{folder}</Link>
                   )}
                 </li>
               ))}

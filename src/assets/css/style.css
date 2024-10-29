@@ -339,11 +339,12 @@ button {
   border: none !important;
 }
 
-.chart-drop{
+.chart-drop {
   cursor: pointer;
 }
 
-.chart-box-set , option{
+.chart-box-set,
+option {
   cursor: pointer;
 }
 
@@ -1219,7 +1220,7 @@ label {
 }
 
 .loginbg {
-  background-image: url(../image/logo.png);
+  background-image: url(../image/log.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1368,4 +1369,18 @@ label {
   background-color: #89609e;
   color: white !important;
   font-weight: 600;
+}
+
+.req .form-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.doJlBZ {
+  display: flex;
+  justify-content: center;
 }

@@ -1,31 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { get } from '../../services/API';
 import { ThreeDots } from "react-loader-spinner";
+import moment from 'moment';
 
 const PartnerOnBench = () => {
     const [currentPage, setCurrentPage] = useState(1);
+    const rowsPerPage = 5; // Number of rows per page
+    const [onboardedCandidate, setOnboardedCandidate] = useState([]); // State for project list
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const rowsPerPage = 5; // Number of rows per page
 
-    // Sample data (you might replace this with actual data)
-    const data = [
-        {
-            name: "Ui Designer",
-            projectName: "Ui/Ux Project",
-            clientName: "Akash BOD",
-            primarySkills: "2",
-            secondarySkills: "IND",
-            yoe: 9,
-            startDate: "17 Jul 24"
-        },
-        // Add more rows here as needed
-    ];
+    useEffect(() => {
+        getAllOnBoardedList();
+    }, []); // Only run once on component mount
+
+    const getAllOnBoardedList = () => {
+        setLoading(true);
+        setError(null);
+        get('/get/candidates')
+            .then((response) => {
+                const projectList = response.data.data;
+                console.log('myProjectList', projectList);
+                setOnboardedCandidate(projectList || []);
+                setCurrentPage(1); // Reset to first page on new fetch
+            })
+            .catch((error) => {
+                console.error("Error fetching projects:", error);
+                setError("Error fetching data.");
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    };
 
     // Pagination calculations
     const indexOfLastRow = currentPage * rowsPerPage;
     const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-    const currentData = data.slice(indexOfFirstRow, indexOfLastRow);
-    const totalPages = Math.ceil(data.length / rowsPerPage);
+    const currentData = onboardedCandidate.slice(indexOfFirstRow, indexOfLastRow);
+    const totalPages = Math.ceil(onboardedCandidate.length / rowsPerPage);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -51,11 +63,7 @@ const PartnerOnBench = () => {
                         <tbody>
                             {loading ? (
                                 <tr>
-                                    <td colSpan="8" style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}>
+                                    <td colSpan="7">
                                         <ThreeDots
                                             visible={true}
                                             height="50"
@@ -68,26 +76,34 @@ const PartnerOnBench = () => {
                                 </tr>
                             ) : error ? (
                                 <tr>
-                                    <td colSpan="8" style={{ textAlign: "center" }}>
+                                    <td colSpan="7" style={{ textAlign: "center" }}>
                                         {error}
                                     </td>
                                 </tr>
-                            ) : currentData.length === 0 ? (
+                            ) : onboardedCandidate.length === 0 ? (
                                 <tr>
-                                    <td colSpan="8" style={{ textAlign: "center" }}>
-                                        No projects found.
+                                    <td colSpan="7" style={{ textAlign: "center" }}>
+                                        No candidates found.
                                     </td>
                                 </tr>
                             ) : (
-                                currentData.map((row, index) => (
+                                onboardedCandidate.map((row, index) => (
                                     <tr key={index}>
-                                        <td data-label="Name">{row.name}</td>
-                                        <td data-label="Project Name">{row.projectName}</td>
-                                        <td data-label="Client Name">{row.clientName}</td>
-                                        <td data-label="Primary Skills">{row.primarySkills}</td>
-                                        <td data-label="Secondary Skills">{row.secondarySkills}</td>
-                                        <td data-label="Yoe">{row.yoe}</td>
-                                        <td data-label="Start Date">{row.startDate}</td>
+                                        <td data-label="Name">{row.name.first_name || 'N/A'}</td>
+                                        <td data-label="Project Name">{row.project_name || 'N/A'}</td>
+                                        <td data-label="Client Name">{row.client_name || 'N/A'}</td>
+                                        <td data-label="Primary Skills">
+                                            {row.skills.primary_skills.map((data) => (data.skill)) || 'N/A'}
+                                        </td>
+                                        <td data-label="Secondary Skills">
+                                            {row.skills.secondary_skills.map((data) => (data.skill)) || 'N/A'}
+                                        </td>
+                                        <td data-label="Yoe">{row.yoe || 'N/A'}</td>
+                                        <td data-label="Start Date">
+                                            {moment(Number(row.start_date)).isValid()
+                                                ? moment(Number(row.start_date)).format('DD MMM YYYY')
+                                                : 'Invalid Date' || 'N/A'}
+                                        </td>
                                     </tr>
                                 ))
                             )}
@@ -96,7 +112,7 @@ const PartnerOnBench = () => {
                 </div>
 
                 {/* Pagination controls */}
-                {data.length > rowsPerPage && (
+                {totalPages > 1 && (
                     <div className="pagination">
                         <button
                             onClick={() => paginate(currentPage - 1)}

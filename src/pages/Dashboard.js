@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import search from "../assets/image/search.svg";
 import peopleCommunity from "../assets/image/peopleCommunity.svg";
@@ -30,28 +30,28 @@ const Dashboard = () => {
       title: "Open Positions",
       number: "02",
       icon: search,
-      path: "/OpenPosition",
+      path: "/openPosition",
       newTitle: "Open Positions",
     },
     {
       title: "Scheduled Interviews",
       number: "04",
       icon: peopleCommunity,
-      path: "/InterviewDetails/:id",
+      path: "/interviewDetails/:id",
       newTitle: "Scheduled Interviews",
     },
     {
       title: "Onboarded Candidates",
       number: "01",
       icon: folderplus,
-      path: "/PartnerOnboarded",
+      path: "/partnerOnboarded",
       newTitle: "Onboarded Candidates",
     },
     {
       title: "Candidates on Bench",
       number: "03",
       icon: timebeg,
-      path: "/PartnerOnBench",
+      path: "/partnerOnBench",
       newTitle: "Candidates on Bench",
     },
   ];
@@ -73,6 +73,16 @@ const Dashboard = () => {
     { name: '5', React: 0, Node: 0, BigData: 0, ASAPNET: 1 },
     { name: '6', React: 0, Node: 0, BigData: 0, ASAPNET: 0 },
   ];
+
+  const [partner, setPartner] = useState([]);
+
+  useEffect(() => {
+    const partnerDetails = localStorage.getItem("partnerData");
+    if (partnerDetails) {
+      console.log(JSON.parse(partnerDetails));
+      setPartner(JSON.parse(partnerDetails))
+    }
+  }, []);
 
   return (
     <>

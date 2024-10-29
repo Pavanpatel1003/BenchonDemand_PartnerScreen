@@ -15,7 +15,7 @@ const MyProject = () => {
     const rowsPerPage = 5;
 
     const handleCurrentProject = (id) => {
-        navigate(`/ProjectDetails/${id}`);
+        navigate(`/projectDetails/${id}`);
     };
 
     useEffect(() => {
@@ -101,12 +101,7 @@ const MyProject = () => {
                     <tbody>
                         {loading ? (
                             <tr>
-                                <td colSpan="7" style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    height: '100px'
-                                }}>
+                                <td colSpan="7">
                                     <ThreeDots
                                         visible={true}
                                         height="50"

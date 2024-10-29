@@ -39,7 +39,7 @@ export const getBlob = async (url, params, headers = {}) => {
 // Post method
 export const post = async (url, data) => {
     const HOST_URL = process.env.REACT_APP_API_HOST;
-    url = trimStart(url, '/');
+    url = trimStart(`${endPoint}${url}`, '/');
     return axios.post(`${url}`, data, {
         headers: getHeaders().headers
     });
