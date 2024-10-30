@@ -1,47 +1,42 @@
 import React, { useState, useEffect } from "react";
 import moment from 'moment';
-import { get } from '../../services/API';
 import { ThreeDots } from "react-loader-spinner";
 
 const OpenPosition = () => {
   const [positions, setPositions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    getOpenPosition();
-  }, []);
-
-  const getOpenPosition = () => {
-    setLoading(true); // Set loading to true before API call
-    setError(null); // Reset error state
-    get('/get/open-position-requirements')
-      .then((response) => {
-        const positionList = response.data.data;
-        console.log('myPositionList', positionList);
-        setPositions(positionList || []);
-        setLoading(false); // Set loading to false after successful fetch
-      })
-      .catch((error) => {
-        console.error("Error fetching projects:", error);
-        setError("Error fetching data."); // Set error message
-        setLoading(false); // Set loading to false on error
-      });
-  };
-
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState(""); // Search term state
   const rowsPerPage = 5;
 
+  useEffect(() => {
+
+    setLoading(true);
+    setError(null);
+
+    const partnerList = localStorage.getItem("partnerData");
+
+    if (partnerList) {
+      const partnerDatas = JSON.parse(partnerList);
+      setPositions(partnerDatas.open_positions);
+      // console.log("partner2", positions)
+      setLoading(false);
+    }
+  }, []);
+
+  // Filter interviews based on search term
   const filteredPositions = positions.filter((position) =>
     position.name.toLowerCase().includes(searchTerm)
   );
 
+  // Pagination for current interviews
   const indexOfLastPosition = currentPage * rowsPerPage;
   const indexOfFirstPosition = indexOfLastPosition - rowsPerPage;
   const currentPositions = filteredPositions.slice(indexOfFirstPosition, indexOfLastPosition);
   const totalPages = Math.ceil(filteredPositions.length / rowsPerPage);
 
+  // Handle search input change
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
     setCurrentPage(1);
@@ -109,7 +104,7 @@ const OpenPosition = () => {
               </tr>
             ) : (
               currentPositions.map((position) => (
-                <tr key={position.id}>
+                <tr>
                   <td data-label="Position Name">{position.name || 'N/A'}</td>
                   <td data-label="Project Name">{position.projectName || 'N/A'}</td>
                   <td data-label="Start Date">

@@ -77,10 +77,10 @@ const Dashboard = () => {
   const [partner, setPartner] = useState([]);
 
   useEffect(() => {
-    const partnerDetails = localStorage.getItem("partnerData");
-    if (partnerDetails) {
-      console.log(JSON.parse(partnerDetails));
-      setPartner(JSON.parse(partnerDetails))
+    const partnerListails = localStorage.getItem("partnerData");
+    if (partnerListails) {
+      console.log(JSON.parse(partnerListails));
+      setPartner(JSON.parse(partnerListails))
     }
   }, []);
 

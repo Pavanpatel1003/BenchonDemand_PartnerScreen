@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
-import { get } from '../../services/API';
 import { ThreeDots } from "react-loader-spinner";
 
 const MyProject = () => {
     const navigate = useNavigate();
-    const [currentTime, setCurrentTime] = useState('');
-    const [searchTerm, setSearchTerm] = useState(''); // Search term state
+    const [partnerListails, setpartnerListails] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [myProjectList, setMyProjectList] = useState([]); // State for project list
     const rowsPerPage = 5;
 
     const handleCurrentProject = (id) => {
@@ -19,36 +17,23 @@ const MyProject = () => {
     };
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentTime(moment().format('MMMM Do YYYY, h:mm:ss a'));
-        }, 1000);
-        return () => clearInterval(timer);
+        setLoading(true);
+        setError(null);
+        try {
+            const partnerData = localStorage.getItem("partnerData");
+            if (partnerData) {
+                const parsedData = JSON.parse(partnerData);
+                setpartnerListails(parsedData.projects || []);
+            }
+        } catch (err) {
+            setError("Failed to load data");
+        } finally {
+            setLoading(false);
+        }
     }, []);
 
-    useEffect(() => {
-        setLoading(true); // Set loading to true before API call
-        setError(null); // Reset error state
-        getAllByList();
-    }, []); // Only run once on component mount
-
-    const getAllByList = () => {
-        get('/get/projects')
-            .then((response) => {
-                const projectList = response.data.data;
-                console.log('myProjectList', projectList);
-                setMyProjectList(projectList || []);
-            })
-            .catch((error) => {
-                console.error("Error fetching projects:", error);
-                setError("Error fetching data."); // Set error message
-            })
-            .finally(() => {
-                setLoading(false); // Set loading to false after fetching
-            });
-    };
-
     // Filter projects based on search term
-    const filteredProjects = myProjectList.filter((project) =>
+    const filteredProjects = partnerListails.filter((project) =>
         project.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -69,22 +54,6 @@ const MyProject = () => {
 
     return (
         <div className="container-fluid table-format">
-            <div className="row">
-                <div className="col-12 col-md-2">
-                    <div className="position-relative">
-                        <i className="fas fa-search position-absolute search-btn"></i>
-                        <input
-                            type="text"
-                            className="form-control ps-5"
-                            placeholder="Search"
-                            style={{ borderRadius: '30px' }}
-                            value={searchTerm}
-                            onChange={handleSearchChange} // Trigger search function on input change
-                        />
-                    </div>
-                </div>
-            </div>
-
             <div className="table-responsive">
                 <table className="table">
                     <thead>
@@ -101,53 +70,37 @@ const MyProject = () => {
                     <tbody>
                         {loading ? (
                             <tr>
-                                <td colSpan="7">
-                                    <ThreeDots
-                                        visible={true}
-                                        height="50"
-                                        width="50"
-                                        color="#89609e"
-                                        radius="9"
-                                        ariaLabel="three-dots-loading"
-                                    />
+                                <td colSpan="7" style={{ textAlign: "center" }}>
+                                    <ThreeDots height="50" width="50" color="#89609e" ariaLabel="loading" />
                                 </td>
                             </tr>
                         ) : error ? (
                             <tr>
-                                <td colSpan="7" style={{ textAlign: "center" }}>
-                                    {error}
-                                </td>
+                                <td colSpan="7" style={{ textAlign: "center" }}>{error}</td>
                             </tr>
                         ) : currentProjects.length === 0 ? (
                             <tr>
-                                <td colSpan="7" style={{ textAlign: "center" }}>
-                                    No projects found.
-                                </td>
+                                <td colSpan="7" style={{ textAlign: "center" }}>No data available.</td>
                             </tr>
                         ) : (
-                            currentProjects.map((project) => (
-                                <tr key={project.id}>
-                                    <td data-label="Project Name">{project.name}</td>
-                                    <td data-label="Total Contractual Employees">{project.total_candidates}</td>
-                                    <td data-label="Project Start Date">
-                                        {moment(Number(project.start_date)).isValid()
-                                            ? moment(Number(project.start_date)).format('DD MMM YYYY')
-                                            : 'Invalid Date'}
+                            currentProjects.map((project, index) => (
+                                <tr key={index}>
+                                    <td>{project.name}</td>
+                                    <td>{project.total_candidates || 'N/A'}</td>
+                                    <td>{project.start_date && moment(Number(project.start_date)).isValid()
+                                        ? moment(Number(project.start_date)).format('DD MMM YYYY')
+                                        : 'Invalid Date'}
                                     </td>
-                                    <td data-label="Project End Date">
-                                        {moment(Number(project.end_date)).isValid()
-                                            ? moment(Number(project.end_date)).format('DD MMM YYYY')
-                                            : 'Invalid Date'}
+                                    <td>{project.end_date && moment(Number(project.end_date)).isValid()
+                                        ? moment(Number(project.end_date)).format('DD MMM YYYY')
+                                        : 'Invalid Date'}
                                     </td>
-                                    <td data-label="Shift Timings">{project.shift_timings}</td>
-                                    <td data-label="Hiring Status">
+                                    <td>{project.shift_timings || 'N/A'}</td>
+                                    <td>
                                         <span className="status-hiring">● {project.hiring_status ? "Hiring" : "Not Hiring"}</span>
                                     </td>
-                                    <td data-label="Action">
-                                        <span
-                                            className="view-details"
-                                            onClick={() => handleCurrentProject(project.id)}
-                                        >
+                                    <td>
+                                        <span className="view-details" onClick={() => handleCurrentProject(project.id)}>
                                             View Details
                                         </span>
                                     </td>
